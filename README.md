@@ -2,7 +2,7 @@
 Name: Jules Lange
 
 Student ID: 74524
-
+ You can find the whole report under the name of "Full Report Mobile App Final Project.pdf" in the root folder
 Requirements Checklist:
 
 <ul> 
@@ -25,3 +25,27 @@ Requirements Checklist:
   <li>- [x] If logged in, attach authentication token to all requests until logout </li>
   <li>- [x] Add a small "About this app" button in the profile page, that shows a page on click with your copyright details and credits </li>
 </ul> 
+
+The journey of developing a mobile application in the ever-evolving landscape of technology has been an exhilarating one for me as a student. In this assignment, I embarked on the creation of an app not only to showcase my skills but also to address contemporary needs in today's digital age. With smartphones becoming an indispensable part of daily life, I saw the opportunity to develop an app that demonstrates my expertise in mobile app development.
+
+Throughout this project, I poured my passion into every phase, from conceptualization to implementation, with a focus on authenticity and empathy. Understanding the needs of users like myself was paramount, ensuring that every feature and functionality served a meaningful purpose.
+
+As I near the conclusion of my academic journey, I present this final year project as evidence of my growth and potential as a future professional in the technology field. I hope this mobile application serves as a reminder of the possibilities ahead and inspires others to pursue their passions with determination.
+
+The assignment requirements encompassed various aspects including authentication, product listing, cart management, order history display, user details presentation, and UI/implementation specifications.
+
+In terms of methodology, effective organization was crucial for project success. I opted for simplicity in UI/UX design, utilizing basic top app bars and bottom navigation bars. A clear file architecture and screen structure facilitated task management and workflow efficiency.
+
+For navigation between screens, a structured map was devised, ensuring seamless transitions. Later in the project, the incorporation of Firebase for database management proved advantageous due to its simplicity and abundant tutorials. Each product was meticulously categorized for better organization.
+
+In the implementation phase, each screen's significance in the project was explored. The SignUp and Login Screens served as entry points, facilitating user authentication and profile creation. The HomePage acted as the central menu, offering navigation to various categories.
+
+ProductCategoriesScreen displayed a range of product categories, facilitating user selection. ProductListScreen provided detailed product listings within categories. ProductScreen offered comprehensive product details and customization options.
+
+The UserProfileScreen showcased user details and provided logout functionality. The AboutScreen offered insights into the app and its creator. Challenges encountered during implementation included database integration and unimplemented features like cart management and order history.
+
+For the cart, a visual representation was provided with item listings and total price display. OrderHistoryScreen mock-up showcased potential features despite functionality limitations.
+
+Various resources were utilized, including Jetpack Compose, Kotlin, Android Studio, Firebase, and Firestore. Tutorials and guides were instrumental in navigating through challenges.
+
+In conclusion, this project has been a transformative experience, showcasing technical skills and problem-solving abilities. Despite challenges, perseverance and resourcefulness led to valuable insights and growth. I am excited about future opportunities in technology and remain committed to innovation and excellence.
