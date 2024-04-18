@@ -138,7 +138,7 @@ fun ProductScreen(navController: NavController, productid: String) {
                                     Icon(
                                         imageVector = Icons.Filled.Add,
                                         contentDescription = "Add Seat",
-                                        tint = if (quantityofproduct.value > 0) Color.Black else Color.Gray // Change tint based on availability
+                                        tint = if (quantityofproduct.value > 0) Color.Black else Color.Gray
                                     )
                                 }
                             }
@@ -152,7 +152,7 @@ fun ProductScreen(navController: NavController, productid: String) {
                                 colors = ButtonDefaults.buttonColors(contentColor = Color.White)
                             ) {
                                 Text(
-                                    text = "Add to Cart"// Ajout du padding vertical dans le texte
+                                    text = "Add to Cart"
                                 )
                             }
                         }

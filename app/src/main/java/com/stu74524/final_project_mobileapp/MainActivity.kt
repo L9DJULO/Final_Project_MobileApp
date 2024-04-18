@@ -45,25 +45,16 @@ import kotlinx.coroutines.tasks.await
 
 class MainActivity : ComponentActivity() {
 
-    // Firebase Authentication instance
     public lateinit var auth: FirebaseAuth
 
-    // SharedPreferences instance
     public lateinit var sharedPreferences: SharedPreferences
 
-    // Tag for logging
     public val TAG = "EmailPassword"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Initialize Firebase Auth
         auth = Firebase.auth
-
-        // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences("user_data", Context.MODE_PRIVATE)
-
-        // Set the content view using Jetpack Compose
         setContent {
             SimpleNavigationTheme {
                 AppNavigation()
@@ -84,11 +75,8 @@ class MainActivity : ComponentActivity() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
-
-                    // Update user profile
                     val profileUpdates = userProfileChangeRequest {
                         displayName = name
                     }
@@ -102,13 +90,11 @@ class MainActivity : ComponentActivity() {
                                 Log.w(TAG, "Failed to update user profile.", profileUpdateTask.exception)
                             }
                         }
-
-                    // Save user data to Firestore with authID
                     val userData = hashMapOf(
                         "username" to username,
                         "name" to name,
                         "email" to email,
-                        "authID" to user?.uid // Include the authentication UID in the document
+                        "authID" to user?.uid
                     )
 
                     user?.uid?.let { userId ->
@@ -125,7 +111,6 @@ class MainActivity : ComponentActivity() {
 
                     updateUI(user)
                 } else {
-                    // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
                     Toast.makeText(
                         baseContext,
@@ -138,17 +123,14 @@ class MainActivity : ComponentActivity() {
     }
 
     public fun Login(email: String, password: String, onComplete: () -> Unit) {
-        // [START sign_in_with_email]
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithEmail:success")
                     val user = auth.currentUser
                     updateUI(user)
                     onComplete()
                 } else {
-                    // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
                     Toast.makeText(
                         baseContext,
@@ -162,7 +144,6 @@ class MainActivity : ComponentActivity() {
     }
 
     public fun saveUserIdLocally(userId: String) {
-        // Save user ID to SharedPreferences
         val editor = sharedPreferences.edit()
         editor.putString("user_id", userId)
         editor.apply()
@@ -170,17 +151,14 @@ class MainActivity : ComponentActivity() {
 
     public fun updateUI(user: FirebaseUser?) {
         if (user != null) {
-            // User is signed in, save user ID to SharedPreferences
             val userId = user.uid
             saveUserIdLocally(userId)
-            // Proceed with your UI update
         } else {
             //logout()
         }
     }
 
     public fun reload() {
-        // Your existing code for reloading data or UI
     }
 
     public fun logout() {
@@ -189,7 +167,6 @@ class MainActivity : ComponentActivity() {
     }
 
     public fun clearUserIdLocally() {
-        // Clear locally stored user ID from SharedPreferences
         val editor = sharedPreferences.edit()
         editor.remove("user_id")
         editor.apply()
@@ -205,20 +182,13 @@ class MainActivity : ComponentActivity() {
             val collection = db.collection("Product")
             val listener = collection.whereEqualTo("category", category).addSnapshotListener { snapshot, exception ->
                 if (exception != null) {
-                    // Handle error
                     close(exception)
                     return@addSnapshotListener
                 }
-
-                // Convert DocumentSnapshots to QueryDocumentSnapshots
                 val queryDocumentSnapshots = snapshot?.documents?.mapNotNull { it as? QueryDocumentSnapshot }
-
-                // Try sending the converted list to the flow
                 trySend(queryDocumentSnapshots ?: emptyList())
-                    .isSuccess // Check if sending was successful
+                    .isSuccess
             }
-
-            // Cancel the listener when the flow is cancelled
             awaitClose { listener.remove() }
         }
     }
@@ -228,17 +198,12 @@ class MainActivity : ComponentActivity() {
             val listener = collection.document(productid)
                 .addSnapshotListener { snapshot, exception ->
                     if (exception != null) {
-                        // Handle error
                         close(exception)
                         return@addSnapshotListener
                     }
-
-                    // Send the snapshot to the flow
                     trySend(snapshot)
-                        .isSuccess // Check if sending was successful
+                        .isSuccess
                 }
-
-            // Cancel the listener when the flow is cancelled
             awaitClose { listener.remove() }
         }
     }
@@ -249,20 +214,13 @@ class MainActivity : ComponentActivity() {
             val uid = authid
             val listener = collection.whereEqualTo("authID", authid).addSnapshotListener { snapshot, exception ->
                 if (exception != null) {
-                    // Handle error
                     close(exception)
                     return@addSnapshotListener
                 }
-
-                // Convert DocumentSnapshots to QueryDocumentSnapshots
                 val queryDocumentSnapshots = snapshot?.documents?.mapNotNull { it as? QueryDocumentSnapshot }
-
-                // Try sending the converted list to the flow
                 trySend(queryDocumentSnapshots ?: emptyList())
-                    .isSuccess // Check if sending was successful
+                    .isSuccess
             }
-
-            // Cancel the listener when the flow is cancelled
             awaitClose { listener.remove() }
         }
     }
@@ -276,16 +234,13 @@ class MainActivity : ComponentActivity() {
             val cart = getCart()
             if (cart != null) {
                 if (cart.items.containsKey(productId)) {
-                    // If the product already exists in the cart, update its quantity
                     val updatedQuantity = cart.items[productId]!! + quantity
                     cart.items[productId] = updatedQuantity
                 } else {
-                    // If the product is not in the cart, add it
                     cart.items[productId] = quantity
                 }
                 cartRef.set(cart).await()
             } else {
-                // If the cart doesn't exist, create a new one and add the product
                 val newCart = Cart(mutableMapOf(productId to quantity))
                 cartRef.set(newCart).await()
             }

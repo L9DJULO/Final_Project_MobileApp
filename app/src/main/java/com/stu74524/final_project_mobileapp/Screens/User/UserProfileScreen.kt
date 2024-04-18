@@ -81,7 +81,7 @@ fun UserProfileScreen(navController: NavController) {
                     Text(text = "Email: ${userdata.data["email"] ?: "N/A"}")
                     Button(
                         onClick = {
-                            navController.navigate(Routes.LoginScreen.route) // Navigate to login screen
+                            navController.navigate(Routes.LoginScreen.route)
                         },
                         shape = RoundedCornerShape(10.dp),
                         modifier = Modifier

@@ -65,7 +65,6 @@ fun AppNavigation() {
                     type = NavType.StringType
                 }
             )) { entry ->
-            // Retrieve the category from the navigation arguments
             val category = entry.arguments?.getString("category")
             if (category != null) {
                 ProductListScreen(navController = navController, category = category)

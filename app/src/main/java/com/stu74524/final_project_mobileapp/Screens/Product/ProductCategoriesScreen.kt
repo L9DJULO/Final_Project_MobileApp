@@ -93,17 +93,17 @@ fun CategoryButton(category: String, image: Int, onClick: () -> Unit) {
         colors = ButtonDefaults.buttonColors(contentColor = Color.White)
     ) {
         Row(
-            verticalAlignment = Alignment.CenterVertically, // Aligns contents vertically
+            verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.fillMaxSize()
         ) {
             Image(
                 painter = painterResource(id = image),
                 contentDescription = null,
-                modifier = Modifier.size(75.dp) // Size of the image
+                modifier = Modifier.size(75.dp)
             )
             Text(
                 text = category,
-                modifier = Modifier.weight(1f) // For text to take all remaining space
+                modifier = Modifier.weight(1f)
             )
         }
     }

@@ -92,7 +92,7 @@ fun ProductItem(productName: String, imageResourceId: String?, onClick: () -> Un
         colors = ButtonDefaults.buttonColors(contentColor = Color.White)
     ) {
         Row(
-            verticalAlignment = Alignment.CenterVertically, // Aligns contents vertically
+            verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.fillMaxSize()
         ) {
             if (imageResourceId != null) {
@@ -109,7 +109,7 @@ fun ProductItem(productName: String, imageResourceId: String?, onClick: () -> Un
                 text = productName,
                 modifier = Modifier
                     .weight(1f)
-                    .padding(start = 8.dp) // Add padding to separate icon and text
+                    .padding(start = 8.dp)
             )
         }
     }

@@ -106,7 +106,6 @@ fun LoginScreen(navController: NavController) {
                     .width(350.dp),
                 onClick = {
                     activity?.Login(varEmail.value.text, varPassword.value.text) {
-                        // Enregistrer localement l'ID de l'utilisateur après la connexion réussie
                         val userId = activity.auth.currentUser?.uid
                         if (userId != null) {
                             activity.saveUserIdLocally(userId)
