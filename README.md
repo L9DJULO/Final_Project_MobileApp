@@ -6,21 +6,22 @@ Student ID: 74524
 Requirements Checklist:
 
 <ul> 
-  <li>- [x] Movie class created with structure from movie.json</li>
-  <li>- [x] Data filled for at least 4 movies, including relevant movie data obtained from <a href="https://www.imdb.com/">imbd</a></li>
-  <li>- [x] Random number generated between 0 and 15 for seats_remaining for each movie</li>
-  <li>- [x] Initial default seats_selected value set to 0 for all movies</li>
-  <li>- [x] Show number of selected seats and hide remaining seats when seats are selected</li>
-  <li>- [x] Clicking any item on the movie screen opens a new MovieActivity</li>
-  <li>- [x] Plus and minus icons added, seats_selected displayed in the middle</li>
-  <li>- [x] Seats_selected and seats_remaining updated on plus/minus click</li>
-  <li>- [x] Validation added to disable minus when 0 seats selected and disable plus when 0 seats remaining</li>
-  <li>- [x] Retain selected seats and reflect them on the screen when back is pressed</li>
-  <li>- [x] Added "filling fast" badge if less than 3 seats remaining</li>
-  <li>- [x] Used "Roboto Condensed" font to replicate same style</li>
-  <li>- [x] Used original movie images from <a href="http://www.impawards.com/">impawards</a></li>
-  <li>- [x] README.md file included with name and student ID</li>
-  <li>- [x] Git repository set to public and README.md with Name, Student ID and requirements checklist (with ticks)</li>
-  <li>- [x] Video screencast link provided  </li>
-  <li>- [x] Added release with app-debug.apk file (located in the root) in the repository</li>
+  <li>- [x] Allow User to Signup </li>
+  <li>- [x] Log In using email and password </li>
+  <li>- [x] Store userID once logged in to keep the user logged in (even after restarting the app) </li>
+  <li>- [x] List Product Categories </li>
+  <li>- [x] On clicking a Category, list Products in that Category </li>
+  <li>- [x] On clicking a Product, show Product description, show buy button and controls to change quantity </li>
+  <li>- [] Show cart summary </li>
+  <li>- [] Show total amount </li>
+  <li>- [] Purchase button to place an order, show order notification </li>
+  <li>- [] List users orders </li>
+  <li>- [] On clicking an Order, show Order details and Products ordered </li>
+  <li>- [] On clicking a Product, take them to Product description page created for 2.3 </li>
+  <li>- [x] Use the stored userID to show user details </li>
+  <li>- [] Show a random circular profile image</li>
+  <li>- [x] Show Logout button, on click take back to Signup / Log In page (Restart should not auto login after logout) </li>
+  <li>- [x] Lazy lists to be used for all Lists: Categories, Products, Orders </li>
+  <li>- [x] If logged in, attach authentication token to all requests until logout </li>
+  <li>- [x] Add a small "About this app" button in the profile page, that shows a page on click with your copyright details and credits </li>
 </ul> 
