@@ -81,7 +81,6 @@ fun UserProfileScreen(navController: NavController) {
                     Text(text = "Email: ${userdata.data["email"] ?: "N/A"}")
                     Button(
                         onClick = {
-                            activity?.logout() // Logout the user
                             navController.navigate(Routes.LoginScreen.route) // Navigate to login screen
                         },
                         shape = RoundedCornerShape(10.dp),

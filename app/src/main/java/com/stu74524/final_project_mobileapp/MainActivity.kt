@@ -79,11 +79,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    public fun logout() {
-        auth.signOut() // Sign out the current user
-        clearUserIdLocally() // Clear locally stored user ID
-    }
-
 
     public fun SignUp(username: String, name: String, email: String, password: String) {
         auth.createUserWithEmailAndPassword(email, password)
@@ -180,12 +175,17 @@ class MainActivity : ComponentActivity() {
             saveUserIdLocally(userId)
             // Proceed with your UI update
         } else {
-            logout()
+            //logout()
         }
     }
 
     public fun reload() {
         // Your existing code for reloading data or UI
+    }
+
+    public fun logout() {
+        auth.signOut()
+        clearUserIdLocally()
     }
 
     public fun clearUserIdLocally() {
