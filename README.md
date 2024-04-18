@@ -2,7 +2,8 @@
 Name: Jules Lange
 
 Student ID: 74524
- You can find the whole report under the name of "Full Report Mobile App Final Project.pdf" in the root folder
+
+You can find the whole report under the name of "Full Report Mobile App Final Project.pdf" in the root folder
 Requirements Checklist:
 
 <ul> 
